@@ -12,7 +12,7 @@ const config = {
   BROWSER_WS_ENDPOINT: process.env.BROWSER_WS_ENDPOINT,
   BROWSER_EXECUTABLE_PATH: process.env.BROWSER_EXECUTABLE_PATH,
   API_TOKENS: [],
-  ALLOW_URLS: ['https://my.refleq.com/', 'https://refleq-staging.herokuapp.com/'],
+  ALLOW_URLS: [],
 };
 
 if (process.env.API_TOKENS) {

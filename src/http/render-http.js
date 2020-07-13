@@ -189,6 +189,7 @@ function getOptsFromQuery(query) {
       selector: query['screenshot.selector'],
       omitBackground: query['screenshot.omitBackground'],
     },
+    ids: query.ids
   };
   return opts;
 }

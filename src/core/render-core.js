@@ -106,12 +106,17 @@ async function render(_opts = {}) {
       await client.send('Network.setCookies', { cookies: opts.cookies });
     }
 
+    let fullUrl = opts.url;
+    if (opts.ids) {
+      fullUrl = `${opts.url}/?ids=${opts.ids}`;
+    }
+
     if (_.isString(opts.html)) {
       logger.info('Set HTML ..');
       await page.setContent(opts.html, opts.goto);
     } else {
       logger.info(`Goto url ${opts.url} ..`);
-      await page.goto(opts.url, opts.goto);
+      await page.goto(fullUrl, opts.goto);
     }
 
     if (_.isNumber(opts.waitFor) || _.isString(opts.waitFor)) {
@@ -171,7 +176,7 @@ async function render(_opts = {}) {
         const selElement = await page.$(opts.screenshot.selector);
         if (!_.isNull(selElement)) {
           data = await selElement.screenshot();
-        } 
+        }
       }
     }
   } catch (err) {
@@ -184,7 +189,7 @@ async function render(_opts = {}) {
       await browser.close();
     }
   }
-  
+
   return data;
 }
 

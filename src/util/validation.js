@@ -64,6 +64,7 @@ const sharedQuerySchema = Joi.object({
   'screenshot.clip.height': Joi.number(),
   'screenshot.selector': Joi.string().regex(/(#|\.).*/),
   'screenshot.omitBackground': Joi.boolean(),
+  'ids': Joi.string(),
 });
 
 const renderQuerySchema = Joi.object({
@@ -129,6 +130,7 @@ const renderBodyObject = Joi.object({
     omitBackground: Joi.boolean(),
   }),
   failEarly: Joi.string(),
+  ids: Joi.string(),
 });
 
 const renderBodySchema = Joi.alternatives([
